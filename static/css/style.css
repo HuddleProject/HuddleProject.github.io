@@ -1,0 +1,318 @@
+/* Huddle project page. Dark by default (html[data-theme="dark"]); light via the toggle. */
+:root,
+[data-theme="dark"] {
+  --bg: #15171c;
+  --bg-elev: #1d2027;
+  --border: #2c313b;
+  --text: #e7e9ee;
+  --text-muted: #9aa3b2;
+  --heading: #f4f6fa;
+  --accent: #7fb2f0;
+  --link: #8ec0ff;
+  --btn-bg: transparent;
+  --btn-hover: #262a33;
+  --code-bg: #1b1e25;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  /* robot colours from the paper figures */
+  --r1: #2a78d6;
+  --r2: #e0a100;
+  --r3: #7b4fbf;
+  --hold: #c0392b;
+  --proceed: #2e9e5b;
+}
+[data-theme="light"] {
+  --bg: #ffffff;
+  --bg-elev: #f6f7f9;
+  --border: #e3e6eb;
+  --text: #1f2933;
+  --text-muted: #5f6b76;
+  --heading: #111820;
+  --accent: #2a78d6;
+  --link: #1f63b8;
+  --btn-hover: #f0f2f5;
+  --code-bg: #f6f7f9;
+  --shadow: 0 10px 30px rgba(17, 24, 32, 0.10);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ---------------- layout: sidebar + content ---------------- */
+.layout {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 0;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.sidebar {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: 100vh;
+  padding: 64px 24px 0 0;
+}
+.sidebar::after {                      /* the thin vertical rule, as on RoCo */
+  content: "";
+  position: absolute;
+  top: 64px;
+  right: 0;
+  height: 260px;
+  width: 1px;
+  background: var(--border);
+}
+.brand {
+  display: block;
+  color: var(--heading);
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 72px;
+}
+.brand:hover { text-decoration: none; }
+.toc { display: flex; flex-direction: column; gap: 14px; }
+.toc a {
+  position: relative;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 500;
+}
+.toc a:hover { color: var(--text); text-decoration: none; }
+.toc a.active { color: var(--heading); font-weight: 600; }
+.toc a.active::after {                 /* marker on the rule next to the active section */
+  content: "";
+  position: absolute;
+  right: -25px;
+  top: 2px;
+  bottom: 2px;
+  width: 2px;
+  background: var(--heading);
+}
+.toc .num {
+  display: inline-block;
+  width: 30px;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.content {
+  position: relative;
+  max-width: 940px;
+  padding: 56px 0 40px 44px;
+}
+
+/* ---------------- theme toggle ---------------- */
+.theme-toggle {
+  position: absolute;
+  top: 56px;
+  right: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+.theme-toggle:hover { background: var(--btn-hover); }
+.theme-toggle svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+[data-theme="dark"] .icon-moon,
+[data-theme="light"] .icon-sun { display: none; }
+
+/* ---------------- hero ---------------- */
+.kicker {
+  margin: 0 0 6px;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+h1 {
+  max-width: 800px;
+  margin: 0 56px 22px 0;
+  color: var(--heading);
+  font-size: 38px;
+  line-height: 1.18;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+.authors, .affiliations {
+  max-width: 780px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  margin: 0 0 6px;
+}
+.authors { font-size: 15.5px; font-weight: 500; color: var(--heading); }
+.authors span { text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 4px; }
+.affiliations { font-size: 14px; color: var(--text-muted); }
+.corresponding { margin: 2px 0 0; font-size: 13.5px; color: var(--text-muted); }
+sup { font-size: 0.68em; margin-left: 1px; }
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 24px 0 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--border);
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--btn-bg);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+.btn:hover { background: var(--btn-hover); border-color: var(--text-muted); text-decoration: none; }
+.btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.btn[data-todo] { opacity: 0.55; cursor: default; }
+
+/* ---------------- video and figures ---------------- */
+.video-card { margin: 0; }
+.video-card video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  background: #000;
+  box-shadow: var(--shadow);
+}
+figcaption {
+  margin-top: 12px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+figcaption strong { color: var(--text); font-weight: 600; }
+
+.figure { margin: 24px 0 0; }
+.figure img {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+  background: #fff;                    /* the paper figures have white backgrounds */
+  border: 1px solid var(--border);
+}
+.figure-placeholder {
+  display: grid;
+  place-items: center;
+  height: 240px;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* ---------------- sections ---------------- */
+section { padding-top: 34px; }
+section + section { margin-top: 26px; }
+h2 {
+  margin: 0 0 14px;
+  color: var(--heading);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+p { margin: 0 0 14px; max-width: 760px; }
+.todo { color: var(--text-muted); font-style: italic; }
+
+.chip {
+  display: inline-block;
+  padding: 0 8px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.6;
+  vertical-align: 1px;
+}
+.chip.hold { background: var(--hold); }
+.chip.proceed { background: var(--proceed); }
+
+/* ---------------- citation ---------------- */
+.bibtex { position: relative; }
+.bibtex pre {
+  margin: 0;
+  padding: 18px 20px;
+  overflow-x: auto;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text);
+}
+.copy {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-elev);
+  color: var(--text-muted);
+  font-size: 12px;
+  cursor: pointer;
+}
+.copy:hover { color: var(--text); }
+
+.footer {
+  margin-top: 64px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* ---------------- small screens: sidebar becomes a top bar ---------------- */
+@media (max-width: 860px) {
+  .layout { grid-template-columns: minmax(0, 1fr); padding: 0 16px; }
+  .sidebar {
+    min-width: 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    height: auto;
+    padding: 12px 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .sidebar::-webkit-scrollbar { display: none; }
+  .sidebar::after, .toc a.active::after { display: none; }
+  .brand { margin: 0; flex: none; }
+  .toc { flex-direction: row; gap: 16px; white-space: nowrap; }
+  .toc .num { display: none; }
+  .content { padding: 28px 0 32px; }
+  .theme-toggle { top: 24px; }
+  h1 { font-size: 28px; margin-right: 48px; }
+  body { font-size: 16px; }
+}
