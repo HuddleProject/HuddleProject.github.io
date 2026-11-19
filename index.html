@@ -7,8 +7,10 @@
   <meta name="description" content="Teams of vision-language-model robots must pool what each one sees and knows to make a single safety-critical HOLD / PROCEED decision. Visual grounding and structured deliberation (Huddle) help them get it right.">
   <meta property="og:title" content="Visual Grounding and Deliberation Help Multi-Robot Teams Make High-Stakes Decisions">
   <meta property="og:description" content="Multi-robot VLM teams, four Isaac Sim environments, and the Huddle deliberation protocol.">
-  <meta property="og:image" content="static/images/video_poster.jpg">
+  <meta property="og:image" content="https://huddleproject.github.io/static/images/video_poster.jpg">
+  <meta property="og:url" content="https://huddleproject.github.io/">
   <meta property="og:type" content="website">
+  <link rel="canonical" href="https://huddleproject.github.io/">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="static/images/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,13 +50,13 @@
       <h1>Visual Grounding and Deliberation Help Multi&#8209;Robot Teams Make High&#8209;Stakes Decisions</h1>
 
       <p class="authors">
-        <span>Mohammadreza Teymoorianfard<sup>1,*</sup></span>
-        <span>Saaduddin Mahmud<sup>1</sup></span>
-        <span>Jean-Philippe Monteuuis<sup>2</sup></span>
-        <span>Jonathan Petit<sup>2</sup></span>
-        <span>Shlomo Zilberstein<sup>1</sup></span>
-        <span>Amir Houmansadr<sup>1</sup></span>
-        <span>Eugene Bagdasarian<sup>1</sup></span>
+        <span><a href="https://mrteymoorian.github.io/" target="_blank" rel="noopener">Mohammadreza Teymoorianfard</a><sup>1,*</sup></span>
+        <span><a href="https://saadmahmud.com/" target="_blank" rel="noopener">Saaduddin Mahmud</a><sup>1</sup></span>
+        <span><a href="https://www.linkedin.com/in/jeanphilippemonteuuis/" target="_blank" rel="noopener">Jean-Philippe Monteuuis</a><sup>2</sup></span>
+        <span><a href="https://www.linkedin.com/in/jonathan-petit-03193813/" target="_blank" rel="noopener">Jonathan Petit</a><sup>2</sup></span>
+        <span><a href="https://www.cics.umass.edu/about/directory/shlomo-zilberstein" target="_blank" rel="noopener">Shlomo Zilberstein</a><sup>1</sup></span>
+        <span><a href="https://people.cs.umass.edu/~amir/" target="_blank" rel="noopener">Amir Houmansadr</a><sup>1</sup></span>
+        <span><a href="https://people.cs.umass.edu/~eugene/" target="_blank" rel="noopener">Eugene Bagdasarian</a><sup>1</sup></span>
       </p>
       <p class="affiliations">
         <span><sup>1</sup>University of Massachusetts Amherst</span>
@@ -120,12 +122,22 @@
     <section id="protocol">
       <h2>Huddle Protocol</h2>
       <p>
-        Huddle structures the team's discussion into stages, so that robots first ground what they see, share
-        what they know, and only then deliberate on the decision.
+        Huddle structures the team's discussion into five stages: robots first pool what they see and know, then
+        process it into a decision, and any robot can still stop the team at the end.
       </p>
+      <ul class="stages">
+        <li><span class="stage-group pooling">Pooling</span><b>1 Grounding</b> clarify ambiguities.
+          <b>2 Share</b> post private facts and observations.</li>
+        <li><span class="stage-group processing">Processing</span><b>3 Assess</b> mark which factors are known
+          and which are not. <b>4 Discuss</b> resolve the unknowns, act if needed (a robot announces a planned
+          move, teammates review it, then it acts and shares what it sees), and revote.</li>
+        <li><span class="stage-group safeguard">Safeguard</span><b>5 Challenge</b> a single HOLD may stop the
+          team.</li>
+      </ul>
       <figure class="figure">
-        <!-- TODO: replace with the paper's Huddle figure, e.g. static/images/huddle_protocol.png -->
-        <div class="figure-placeholder">Huddle protocol figure coming soon</div>
+        <a href="static/images/huddle_protocol.png" target="_blank" rel="noopener">
+          <img src="static/images/huddle_protocol.png" alt="The Huddle protocol: Grounding and Share (pooling), Assess and Discuss (processing), and Challenge (safeguard), with the act-announce-review loop inside Discuss" loading="lazy">
+        </a>
       </figure>
     </section>
 
