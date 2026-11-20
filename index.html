@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Huddle: Visual Grounding and Deliberation Help Multi-Robot Teams Make High-Stakes Decisions</title>
-  <meta name="description" content="Teams of vision-language-model robots must pool what each one sees and knows to make a single safety-critical HOLD / PROCEED decision. Visual grounding and structured deliberation (Huddle) help them get it right.">
+  <title>HUDDLE: Visual Grounding and Deliberation Help Multi-Robot Teams Make High-Stakes Decisions</title>
+  <meta name="description" content="Teams of vision-language-model robots must pool what each one sees and knows to make a single safety-critical HOLD / PROCEED decision. Visual grounding and structured deliberation (HUDDLE) help them get it right.">
   <meta property="og:title" content="Visual Grounding and Deliberation Help Multi-Robot Teams Make High-Stakes Decisions">
-  <meta property="og:description" content="Multi-robot VLM teams, four Isaac Sim environments, and the Huddle deliberation protocol.">
+  <meta property="og:description" content="Multi-robot VLM teams, four Isaac Sim environments, and the HUDDLE deliberation protocol.">
   <meta property="og:image" content="https://huddleproject.github.io/static/images/video_poster.jpg">
   <meta property="og:url" content="https://huddleproject.github.io/">
   <meta property="og:type" content="website">
@@ -27,12 +27,12 @@
 
   <!-- ===================== sidebar ===================== -->
   <aside class="sidebar">
-    <a class="brand" href="#project">Huddle</a>
+    <a class="brand" href="#project">HUDDLE</a>
     <nav class="toc" aria-label="Sections">
       <a href="#project" class="active"><span class="num">00</span>Project</a>
       <a href="#abstract"><span class="num">01</span>Abstract</a>
       <a href="#environments"><span class="num">02</span>Environments</a>
-      <a href="#protocol"><span class="num">03</span>Huddle Protocol</a>
+      <a href="#protocol"><span class="num">03</span>HUDDLE Protocol</a>
       <a href="#citation"><span class="num">04</span>Citation</a>
     </nav>
   </aside>
@@ -46,7 +46,7 @@
 
     <!-- 00 Project -->
     <section id="project" class="hero">
-      <p class="kicker">Huddle</p>
+      <p class="kicker">HUDDLE</p>
       <h1>Visual Grounding and Deliberation Help Multi&#8209;Robot Teams Make High&#8209;Stakes Decisions</h1>
 
       <p class="authors">
@@ -94,8 +94,27 @@
     <!-- 01 Abstract -->
     <section id="abstract">
       <h2>Abstract</h2>
-      <!-- TODO: paste the paper's abstract here (replace this whole <p>). -->
-      <p class="todo">Abstract coming soon.</p>
+      <p>
+        When several robots work together, each one sees only part of the scene and may know facts the others
+        don’t. To make a safe decision, like whether it’s okay to serve a sandwich or move a patient into an MRI
+        room, they have to put these pieces together by talking. We test whether teams of VLM-powered robots can do
+        this, using four environments: a kitchen, a living room, a bedroom, and a hospital.
+      </p>
+      <p>
+        They often can’t. When robots simply discuss, their accuracy can drop to chance, even though the same
+        models solve the task easily when one of them sees everything. This isn’t only a problem for small models.
+        Even the newest frontier models, GPT-6 Astra and Gemini 4 Argon, lose performance when they have to
+        communicate. The cause is communication, not reasoning: robots keep important facts to themselves, or move
+        their cameras before they know what to look for. Common fixes, like better prompts, more rounds, or bigger
+        teams, don’t help.
+      </p>
+      <p>
+        So we built HUDDLE, a simple protocol inspired by how human teams in high-stakes settings talk: first share
+        what you see and know, then agree on what’s missing, and only then act and vote. HUDDLE improves accuracy by
+        up to 42 percentage points across models. On our hardest environment, a hospital we never used while
+        designing HUDDLE, it improves Gemini 4 Argon by 17 points and GPT-6 Astra by 8. With HUDDLE, Argon’s team
+        gets almost as good as a single model that sees everything.
+      </p>
     </section>
 
     <!-- 02 Environments -->
@@ -118,11 +137,11 @@
       </figure>
     </section>
 
-    <!-- 03 Huddle Protocol -->
+    <!-- 03 HUDDLE Protocol -->
     <section id="protocol">
-      <h2>Huddle Protocol</h2>
+      <h2>HUDDLE Protocol</h2>
       <p>
-        Huddle structures the team's discussion into five stages: robots first pool what they see and know, then
+        HUDDLE structures the team's discussion into five stages: robots first pool what they see and know, then
         process it into a decision, and any robot can still stop the team at the end.
       </p>
       <ul class="stages">
@@ -136,7 +155,7 @@
       </ul>
       <figure class="figure">
         <a href="static/images/huddle_protocol.png" target="_blank" rel="noopener">
-          <img src="static/images/huddle_protocol.png" alt="The Huddle protocol: Grounding and Share (pooling), Assess and Discuss (processing), and Challenge (safeguard), with the act-announce-review loop inside Discuss" loading="lazy">
+          <img src="static/images/huddle_protocol.png" alt="The HUDDLE protocol: Grounding and Share (pooling), Assess and Discuss (processing), and Challenge (safeguard), with the act-announce-review loop inside Discuss" loading="lazy">
         </a>
       </figure>
     </section>
