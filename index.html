@@ -33,7 +33,8 @@
       <a href="#abstract"><span class="num">01</span>Abstract</a>
       <a href="#environments"><span class="num">02</span>Environments</a>
       <a href="#protocol"><span class="num">03</span>HUDDLE Protocol</a>
-      <a href="#citation"><span class="num">04</span>Citation</a>
+      <a href="#results"><span class="num">04</span>Results</a>
+      <a href="#citation"><span class="num">05</span>Citation</a>
     </nav>
   </aside>
 
@@ -160,7 +161,43 @@
       </figure>
     </section>
 
-    <!-- 04 Citation -->
+    <!-- 04 Results -->
+    <section id="results">
+      <h2>Results</h2>
+      <h3>HUDDLE improves accuracy across models and environments</h3>
+      <p>
+        Accuracy of seven models under open deliberation (grey) and with HUDDLE (orange; the hollow circle is HUDDLE
+        without the Safeguard stage). HUDDLE improves accuracy by up to 42 percentage points. On the hospital, an
+        environment never used while designing HUDDLE, it improves Gemini 4 Argon by 17 points and GPT-6 Astra by 8.
+      </p>
+      <figure class="figure">
+        <a href="static/images/results_accuracy.png" target="_blank" rel="noopener">
+          <img src="static/images/results_accuracy.png" alt="Accuracy per model and environment under open deliberation and with HUDDLE (plus Safeguard), with the change in percentage points for each model" loading="lazy">
+        </a>
+        <figcaption>
+          Each row is one model; labels give the change in accuracy in percentage points. The dashed line marks
+          chance (0.5).
+        </figcaption>
+      </figure>
+
+      <h3>Why: robots stop keeping facts to themselves</h3>
+      <p>
+        In three of the four environments, the most common failures in open deliberation are pooling failures:
+        evidence that is never obtained, never shared, or shared too late. HUDDLE cuts them sharply; for example,
+        "never shared" drops from .62 to .05 in the kitchen and from .89 to .34 in the hospital. One failure
+        rises: in the hospital, robots more often ignore evidence a teammate shared (.28 &rarr; .55).
+      </p>
+      <figure class="figure">
+        <a href="static/images/results_failures.png" target="_blank" rel="noopener">
+          <img src="static/images/results_failures.png" alt="How often each failure mode occurs under open deliberation and with HUDDLE, per environment, grouped into pooling and processing failures" loading="lazy">
+        </a>
+        <figcaption>
+          How often each failure mode occurs, open deliberation &rarr; HUDDLE. Green cells fall, red cells rise.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- 05 Citation -->
     <section id="citation">
       <h2>Citation</h2>
       <div class="bibtex">
