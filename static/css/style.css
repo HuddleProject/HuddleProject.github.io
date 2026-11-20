@@ -165,7 +165,6 @@ h1 {
 .authors a { color: var(--heading); text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 4px; }
 .authors a:hover { text-decoration-color: var(--accent); }
 .affiliations { font-size: 14px; color: var(--text-muted); }
-.corresponding { margin: 2px 0 0; font-size: 13.5px; color: var(--text-muted); }
 sup { font-size: 0.68em; margin-left: 1px; }
 
 .buttons {
