@@ -78,6 +78,22 @@
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h4v4H8a3 3 0 0 0 3 3v2a5 5 0 0 1-5-5V7zm8 0h4v4h-3a3 3 0 0 0 3 3v2a5 5 0 0 1-5-5V7z"/></svg>BibTeX</a>
       </div>
 
+      <!-- headline results, visible on the first screen -->
+      <div class="highlights">
+        <a class="stat" href="#results">
+          <span class="stat-num">+17 pp</span>
+          <span class="stat-label"><b>Gemini 4 Argon</b> on the hospital, an environment never used to design HUDDLE</span>
+        </a>
+        <a class="stat" href="#results">
+          <span class="stat-num">+8 pp</span>
+          <span class="stat-label"><b>GPT-6 Astra</b> on the same unseen hospital</span>
+        </a>
+        <a class="stat" href="#results">
+          <span class="stat-num">up to +42 pp</span>
+          <span class="stat-label">accuracy gain across models and environments</span>
+        </a>
+      </div>
+
       <figure class="video-card">
         <video id="demo" controls muted playsinline preload="metadata" poster="static/images/video_poster.jpg">
           <source src="static/videos/hospital_demo.mp4" type="video/mp4">
@@ -183,9 +199,7 @@
       <h3>Why: robots stop keeping facts to themselves</h3>
       <p>
         In three of the four environments, the most common failures in open deliberation are pooling failures:
-        evidence that is never obtained, never shared, or shared too late. HUDDLE cuts them sharply; for example,
-        "never shared" drops from .62 to .05 in the kitchen and from .89 to .34 in the hospital. One failure
-        rises: in the hospital, robots more often ignore evidence a teammate shared (.28 &rarr; .55).
+        evidence that is never obtained, never shared, or shared too late. HUDDLE cuts them sharply.
       </p>
       <figure class="figure">
         <a href="static/images/results_failures.png" target="_blank" rel="noopener">
