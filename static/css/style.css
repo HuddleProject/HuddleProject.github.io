@@ -193,33 +193,23 @@ sup { font-size: 0.68em; margin-left: 1px; }
 .btn[data-todo] { opacity: 0.55; cursor: default; }
 
 /* ---------------- headline results ---------------- */
-.highlights {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
+.highlight {
+  display: block;
   margin: 0 0 26px;
-}
-.stat {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding: 14px 16px;
+  padding: 16px 20px;
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-left: 4px solid var(--huddle);
+  border-radius: 10px;
   background: var(--bg-elev);
-  color: var(--text-muted);
+  color: var(--text);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5;
   transition: border-color 0.15s ease;
 }
-.stat:hover { border-color: var(--huddle); text-decoration: none; }
-.stat-num {
-  color: var(--huddle);
-  font-size: 30px;
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-}
-.stat-label { font-size: 13.5px; line-height: 1.45; }
-.stat-label b { color: var(--heading); font-weight: 600; }
+.highlight:hover { border-color: var(--huddle); text-decoration: none; }
+.highlight em { color: var(--huddle); font-style: normal; font-weight: 700; }
+.highlight b { color: var(--heading); font-weight: 700; white-space: nowrap; }
 
 /* ---------------- video and figures ---------------- */
 .video-card { margin: 0; }
@@ -369,8 +359,6 @@ h2 + h3 { margin-top: 4px; }
   h1 { font-size: 28px; margin-right: 48px; }
   body { font-size: 16px; }
   .stages li { padding-left: 0; }
-  .highlights { grid-template-columns: 1fr; gap: 8px; }
-  .stat { flex-direction: row; align-items: center; gap: 14px; padding: 10px 14px; }
-  .stat-num { font-size: 24px; flex: none; min-width: 92px; }
+  .highlight { font-size: 17px; padding: 12px 14px; }
   .stage-group { position: static; display: block; margin-bottom: 2px; }
 }
